@@ -1,3 +1,6 @@
+//import { MouseEvent } from "react";
+
+import { useState } from "react";
 
 //function ListGroup() 
 //{
@@ -13,43 +16,53 @@
 //export default ListGroup;
 
 function ListGroup1() {
-       const items = [
-        'Accra',
-        'Kuamsi',
-        'Tamale',
-        'Bola',
-        'Sunyani'
-     ];
+       let menus = ['Supervisor','Drivers','Revenue Collectors',
+         'Bola Bills','Client Payments'];
+        //let slectedMenuIndex = 0;
+        // below is the state hook that tells the the above variables content will change, 
+        // when added it imports it automatically
+        const [selectedMenuIndex, setselectedMenuIndex] = useState(-1);
 
-// decalsred a message as avariable
- const getMessage = () => {
-   return items.length===0 ? <p> No ietms found </p> : null;
- } 
+        //below is an event handler
+        //const clickResponse = (event: MouseEvent)=> console.log(event);
+
+       // decalsred a message as avariable
 
   return (
 
-      // <> represent a fragment tag 
-    
-      <>       
-         <h1> Bola Rendered List Group </h1>
-
-             {getMessage(3)} 
-             
-         <ul className="list-group">
+ /*             <ul className="list-group">
               {items.map((item, index)=> 
-              <li className='list-group-term' key={item} onClick={()=>
-                  console.log(item,index)}>{item}
+              <li className={slectedIndex === index ? "list-group-term active": 'list-group-term'} key={item} 
+                onClick={clickResponse}>{item}
+              </li>)}
+         </ul>  */
+
+
+      // <> represent a fragment tag 
+
+      
+      <>       
+         <h1> Bola Suplimentary App </h1>
+            {menus.length===0 && <p> No Meenu Selected</p>}
+             
+         <ul className="menu-list">
+              {menus.map((menuitem, index)=> 
+              <li className={selectedMenuIndex === index ? "menu-list-term active": 'menu-list-term'} 
+                  key={menuitem} 
+                  onClick={()=> {setselectedMenuIndex(index);}}
+                  /*onClick={clickResponse}*/
+                  >
+                  {menuitem}
               </li>)}
          </ul>
       </>
 
     )
-
 }
 
 export default ListGroup1;
 
-{/* <h1> Active List Group </h1>
+/* <h1> Active List Group </h1>
       <ul ClassName="list-group"> 
       <li ClassName="list-group-item active" aria-current="true">An active item</li>
       <li ClassName="list-group-item">A second item</li>
@@ -58,4 +71,4 @@ export default ListGroup1;
       <li ClassName="list-group-item">And a fifth one</li>
       </ul> 
       </>      
-      */}
+      */
