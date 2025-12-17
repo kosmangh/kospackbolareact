@@ -6,9 +6,21 @@ import TestCommand from "./componets/testCommands";
 
 
 function App()  {
-//  return <div> <Message></Message></div>
-  return <div> <ListGroup1/> <TestCommand/> </div>
+  let menus = ['Supervisor','Drivers','Revenue Collectors',
+         'Bola Bills','Client Payments'];
   
+      const handlerSelectItem = (item:string) => {
+          console.log(item);
+      }   
+
+//  return <div> <Message></Message></div>
+  return <div> 
+    <ListGroup1 items={menus} heading="Bola Suplimentary App" onSelectItem={handlerSelectItem} />
+    
+     <TestCommand/> 
+  
+  
+  </div>
   
 }
 
