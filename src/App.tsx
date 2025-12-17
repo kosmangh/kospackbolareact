@@ -2,11 +2,11 @@
 //import ListGroup from "./componets/ListGroup";
 import ListGroup1 from "./componets/ListGroup";
 import TestCommand from "./componets/testCommands";
-
+import Alert from "./componets/Alert";
 
 
 function App()  {
-  let menus = ['Supervisor','Drivers','Revenue Collectors',
+  let menus = ['Add/Edit Supervisor','Add/Edt Drivers','Add/Edit Revenue Collectors',
          'Bola Bills','Client Payments'];
   
       const handlerSelectItem = (item:string) => {
@@ -18,7 +18,8 @@ function App()  {
     <ListGroup1 items={menus} heading="Bola Suplimentary App" onSelectItem={handlerSelectItem} />
     
      <TestCommand/> 
-  
+
+     <Alert/>
   
   </div>
   
